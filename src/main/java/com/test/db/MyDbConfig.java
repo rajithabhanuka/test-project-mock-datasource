@@ -37,20 +37,23 @@ public class MyDbConfig {
 
     public HikariDataSource createHikariDataSource(String read_right) {
 
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:h2:mem:test_db;INIT=RUNSCRIPT FROM 'classpath:data.sql';");
-        config.setUsername("root");
-        config.setPassword("root");
-        config.setDriverClassName("org.h2.Driver");
-        config.addDataSourceProperty("cachePrepStmts", "true");
-        config.addDataSourceProperty("prepStmtCacheSize", "250");
-        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+//        HikariConfig config = new HikariConfig();
+//        config.setJdbcUrl("jdbc:h2:mem:test_db;INIT=RUNSCRIPT FROM 'classpath:data.sql';");
+//        config.setUsername("root");
+//        config.setPassword("root");
+//        config.setDriverClassName("org.h2.Driver");
+//        config.addDataSourceProperty("cachePrepStmts", "true");
+//        config.addDataSourceProperty("prepStmtCacheSize", "250");
+//        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+//
+//        if (read_right.equalsIgnoreCase("read")) {
+//            config.setReadOnly(true);
+//        }
 
-        if (read_right.equalsIgnoreCase("read")) {
-            config.setReadOnly(true);
-        }
+//        HikariDataSource hikariDataSource = new HikariDataSource(config);
 
-        HikariDataSource hikariDataSource = new HikariDataSource(config);
+
+        HikariDataSource hikariDataSource = new HikariDataSource();
         return hikariDataSource;
 
 
