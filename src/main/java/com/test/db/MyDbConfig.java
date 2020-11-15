@@ -2,7 +2,6 @@ package com.test.db;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -37,6 +36,7 @@ public class MyDbConfig {
     }
 
     public HikariDataSource createHikariDataSource(String read_right) {
+
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://localhost:3306/test_db");
         config.setUsername("root");
@@ -52,13 +52,16 @@ public class MyDbConfig {
         HikariDataSource hikariDataSource = new HikariDataSource(config);
         return hikariDataSource;
 
-//		final HikariDataSource hikariDataSource = new HikariDataSource();
-//		hikariDataSource.setMaximumPoolSize(25);
-//		hikariDataSource.setDataSourceClassName("org.h2.Driver");
-//		hikariDataSource.addDataSourceProperty("url", "jdbc:h2:mem:assingment2");
-//		hikariDataSource.addDataSourceProperty("username", "root");
-//		hikariDataSource.addDataSourceProperty("password", "root");
-//		return hikariDataSource;
+        /*
+		final HikariDataSource hikariDataSource = new HikariDataSource();
+		hikariDataSource.setMaximumPoolSize(25);
+		hikariDataSource.setDataSourceClassName("org.h2.Driver");
+		hikariDataSource.addDataSourceProperty("url", "jdbc:h2:mem:test_db");
+		hikariDataSource.addDataSourceProperty("username", "root");
+		hikariDataSource.addDataSourceProperty("password", "root");
+		return hikariDataSource;
+         */
+
     }
 
 }
