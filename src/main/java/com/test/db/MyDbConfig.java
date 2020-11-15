@@ -2,6 +2,7 @@ package com.test.db;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -38,7 +39,7 @@ public class MyDbConfig {
     public HikariDataSource createHikariDataSource(String read_right) {
 
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:h2:mem:test_db");
+        config.setJdbcUrl("jdbc:h2:mem:test_db;INIT=RUNSCRIPT FROM 'classpath:data.sql';");
         config.setUsername("root");
         config.setPassword("root");
         config.setDriverClassName("org.h2.Driver");
