@@ -38,9 +38,10 @@ public class MyDbConfig {
     public HikariDataSource createHikariDataSource(String read_right) {
 
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/test_db");
+        config.setJdbcUrl("jdbc:h2:mem:test_db");
         config.setUsername("root");
         config.setPassword("root");
+        config.setDriverClassName("org.h2.Driver");
         config.addDataSourceProperty("cachePrepStmts", "true");
         config.addDataSourceProperty("prepStmtCacheSize", "250");
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
@@ -52,15 +53,6 @@ public class MyDbConfig {
         HikariDataSource hikariDataSource = new HikariDataSource(config);
         return hikariDataSource;
 
-        /*
-		final HikariDataSource hikariDataSource = new HikariDataSource();
-		hikariDataSource.setMaximumPoolSize(25);
-		hikariDataSource.setDataSourceClassName("org.h2.Driver");
-		hikariDataSource.addDataSourceProperty("url", "jdbc:h2:mem:test_db");
-		hikariDataSource.addDataSourceProperty("username", "root");
-		hikariDataSource.addDataSourceProperty("password", "root");
-		return hikariDataSource;
-         */
 
     }
 
